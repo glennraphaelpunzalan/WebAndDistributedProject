@@ -1,4 +1,3 @@
 "# WebAndDistributedProject" 
 
-# file link
-# https://glennraphaelpunzalan.github.io/WebAndDistributedProject/
+"# live link: https://glennraphaelpunzalan.github.io/WebAndDistributedProject/"
