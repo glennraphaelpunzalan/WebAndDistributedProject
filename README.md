@@ -1,3 +1,3 @@
 "# WebAndDistributedProject" 
 
-"# live link: https://glennraphaelpunzalan.github.io/WebAndDistributedProject/"
+"# live link: https://glennraphaelpunzalan.github.io/pokedexproject/"
