@@ -1,152 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemon Detail</title>
-
-    <link rel="stylesheet" href="style.css" />
-
-    <script src="./pokemon-detail.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Detail</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="./pokemon-detail.js" defer></script>
 </head>
-
 <body>
-    <main class="detail-main main">
+  <main class="detail-main main">
 
-        <!-- HEADER -->
-        <header class="header">
-            <div class="header-wrapper">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-wrapper">
 
-                <div class="header-wrap">
-                    <a href="./index.html" class="back-btn-wrap">
-                        <img
-                            src="./assets/back-to-home.svg"
-                            alt="back to home"
-                            class="back-btn"
-                            id="back-btn"
-                        />
-                    </a>
-
-                    <div class="name-wrap">
-                        <h1 class="name"></h1>
-                    </div>
-                </div>
-
-                <div class="pokemon-id-wrap">
-                    <p class="body2-fonts"></p>
-                </div>
-
-            </div>
-        </header>
-
-        <!-- FEATURED IMAGE -->
-        <div class="featured-img">
-
-            <a href="#" class="arrow left-arrow" id="leftArrow">
-                <img
-                    src="./assets/chevron_left.svg"
-                    alt="back"
-                />
-            </a>
-
-            <div class="detail-img-wrap">
-                <img src="" alt="pokemon image" />
-            </div>
-
-            <a href="#" class="arrow right-arrow" id="rightArrow">
-                <img
-                    src="./assets/chevron_right.svg"
-                    alt="forward"
-                />
-            </a>
-
+        <div class="header-wrap">
+          <a href="./index.html" class="back-btn-wrap">
+            <img
+              src="./assets/back-to-home.svg"
+              alt="back to home"
+              class="back-btn"
+              id="back-btn"
+            />
+          </a>
+          <div class="name-wrap">
+            <h1 class="name"></h1>
+          </div>
         </div>
 
-        <!-- DETAILS CARD -->
-        <div class="detail-card-detail-wrapper">
-
-            <!-- TYPES -->
-            <div class="power-wrapper"></div>
-
-            <!-- ABOUT -->
-            <p class="body2-fonts about-text">
-                About
-            </p>
-
-            <!-- POKEMON DETAILS -->
-            <div class="pokemon-detail-wrapper">
-
-                <!-- WEIGHT -->
-                <div class="pokemon-detail-wrap">
-
-                    <div class="pokemon-detail">
-                        <img
-                            src="./assets/weight.svg"
-                            alt="weight"
-                        />
-
-                        <p class="body3-fonts weight"></p>
-                    </div>
-
-                    <p class="caption-fonts">
-                        Weight
-                    </p>
-
-                </div>
-
-                <!-- HEIGHT -->
-                <div class="pokemon-detail-wrap">
-
-                    <div class="pokemon-detail">
-
-                        <img
-                            src="./assets/height.svg"
-                            alt="height"
-                            class="straighten"
-                        />
-
-                        <p class="body3-fonts height"></p>
-
-                    </div>
-
-                    <p class="caption-fonts">
-                        Height
-                    </p>
-
-                </div>
-
-                <!-- ABILITIES -->
-                <div class="pokemon-detail-wrap">
-
-                    <div class="pokemon-detail move"></div>
-
-                    <p class="caption-fonts">
-                        Abilities
-                    </p>
-
-                </div>
-
-            </div>
-
-            <!-- DESCRIPTION -->
-            <p class="body3-fonts pokemon-description"></p>
-
-            <!-- STATS -->
-            <p class="body2-fonts about-text">
-                Base Stats
-            </p>
-
-            <div class="stats-wrapper"></div>
-
+        <div class="pokemon-id-wrap">
+          <p class="body2-fonts"></p>
         </div>
 
-        <!-- BACKGROUND IMAGE -->
-        <img
-            src="./assets/pokedex.svg"
-            alt="pokedex"
-            class="detail-bg"
-        />
+      </div>
+    </header>
 
-    </main>
+    <!-- FEATURED IMAGE -->
+    <div class="featured-img">
+
+      <a href="#" class="arrow left-arrow" id="leftArrow">
+        <img src="./assets/chevron_left.svg" alt="back" />
+      </a>
+
+      <div class="detail-img-wrap">
+        <img src="" alt="pokemon image" />
+      </div>
+
+      <a href="#" class="arrow right-arrow" id="rightArrow">
+        <img src="./assets/chevron_right.svg" alt="forward" />
+      </a>
+
+    </div>
+
+    <!-- DETAILS CARD -->
+    <div class="detail-card-detail-wrapper">
+
+      <div class="power-wrapper"></div>
+
+      <p class="body2-fonts about-text">About</p>
+
+      <div class="pokemon-detail-wrapper">
+
+        <!-- WEIGHT -->
+        <div class="pokemon-detail-wrap">
+          <div class="pokemon-detail">
+            <img src="./assets/weight.svg" alt="weight" />
+            <p class="body3-fonts weight"></p>
+          </div>
+          <p class="caption-fonts">Weight</p>
+        </div>
+
+        <!-- HEIGHT -->
+        <div class="pokemon-detail-wrap">
+          <div class="pokemon-detail">
+            <img src="./assets/height.svg" alt="height" class="straighten" />
+            <p class="body3-fonts height"></p>
+          </div>
+          <p class="caption-fonts">Height</p>
+        </div>
+
+        <!-- ABILITIES -->
+        <div class="pokemon-detail-wrap">
+          <div class="pokemon-detail move"></div>
+          <p class="caption-fonts">Abilities</p>
+        </div>
+
+      </div>
+
+      <p class="body3-fonts pokemon-description"></p>
+
+      <p class="body2-fonts about-text">Base Stats</p>
+
+      <div class="stats-wrapper"></div>
+
+    </div>
+
+    <!-- BACKGROUND IMAGE -->
+    <img src="./assets/pokedex.svg" alt="pokedex" class="detail-bg" />
+
+  </main>
 </body>
 </html>
