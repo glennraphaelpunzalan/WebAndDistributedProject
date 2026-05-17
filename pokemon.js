@@ -8,50 +8,39 @@ const notFoundMessage = document.querySelector("#not-found-message");
 let allPokemons = [];
 
 fetch(`https://pokeapi.co/api/v2/pokemon?limit=${MAX_POKEMON}`)
-  .then((response) => response.json())
+  .then((res) => res.json())
   .then((data) => {
     allPokemons = data.results;
     displayPokemons(allPokemons);
   })
-  .catch((error) => console.error('Error fetching Pokémon:', error));
-
-async function fetchPokemonDataBeforeRedirect(id) {
-  try {
-    const [pokemon, pokemonSpecies] = await Promise.all([
-      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => res.json()),
-      fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`).then((res) => res.json())
-    ]);
-    console.log(pokemon, pokemonSpecies);
-    return true;
-  } catch (error) {
-    console.error('Error fetching Pokémon data before redirect:', error);
-  }
-}
+  .catch((err) => console.error("Error fetching Pokémon:", err));
 
 function displayPokemons(pokemonList) {
   listWrapper.innerHTML = "";
 
   pokemonList.forEach((pokemon) => {
     const pokemonID = pokemon.url.split("/")[6];
+    const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
     const listItem = document.createElement("div");
     listItem.className = "list-item";
     listItem.innerHTML = `
       <div class="number-wrap">
-        <p class="caption-fonts">#${pokemonID}</p>
+        <p class="caption-fonts">#${String(pokemonID).padStart(3, "0")}</p>
       </div>
       <div class="img-wrap">
-        <img src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}" />
+        <img
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonID}.png"
+          alt="${name}"
+        />
       </div>
       <div class="name-wrap">
-        <p class="body3-fonts">${pokemon.name}</p>
+        <p class="body3-fonts">${name}</p>
       </div>
     `;
 
-    listItem.addEventListener("click", async () => {
-      const success = await fetchPokemonDataBeforeRedirect(pokemonID);
-      if (success) {
-        window.location.href = `./detail.html?id=${pokemonID}`;
-      }
+    listItem.addEventListener("click", () => {
+      window.location.href = `./detail.html?id=${pokemonID}`;
     });
 
     listWrapper.appendChild(listItem);
@@ -60,31 +49,24 @@ function displayPokemons(pokemonList) {
 
 function handleSearch() {
   const searchTerm = searchInput.value.toLowerCase();
-  let filteredPokemons = allPokemons;
 
-  if (numberFilter.checked) {
-    filteredPokemons = allPokemons.filter((pokemon) => {
-      const pokemonID = pokemon.url.split("/")[6];
-      return pokemonID.startsWith(searchTerm);
-    });
-  } else if (nameFilter.checked) {
-    filteredPokemons = allPokemons.filter((pokemon) =>
-      pokemon.name.toLowerCase().startsWith(searchTerm)
-    );
-  }
+  const filteredPokemons = allPokemons.filter((pokemon) => {
+    const pokemonID = pokemon.url.split("/")[6];
+    if (numberFilter.checked) return pokemonID.startsWith(searchTerm);
+    if (nameFilter.checked) return pokemon.name.toLowerCase().startsWith(searchTerm);
+    return true;
+  });
 
   displayPokemons(filteredPokemons);
-
   notFoundMessage.style.display = filteredPokemons.length === 0 ? "block" : "none";
 }
 
-const closeButton = document.querySelector(".search-close-icon");
-closeButton.addEventListener("click", clearSearch);
+searchInput.addEventListener("keyup", handleSearch);
+numberFilter.addEventListener("change", handleSearch);
+nameFilter.addEventListener("change", handleSearch);
 
-function clearSearch() {
+document.querySelector(".search-close-icon").addEventListener("click", () => {
   searchInput.value = "";
   displayPokemons(allPokemons);
   notFoundMessage.style.display = "none";
-}
-
-searchInput.addEventListener("keyup", handleSearch);
+});

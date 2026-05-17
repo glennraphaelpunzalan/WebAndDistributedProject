@@ -198,7 +198,7 @@ function displayPokemonDetails(pokemon) {
         document.querySelector(".detail-img-wrap img");
 
     imageElement.src =
-        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
     const typeWrapper =
         document.querySelector(".power-wrapper");
@@ -213,11 +213,11 @@ function displayPokemonDetails(pokemon) {
     });
 
     document.querySelector(
-        ".pokemon-detail-wrap .weight"
+        ".pokemon-detail-wrap:nth-child(1) .weight"
     ).textContent = `${weight / 10} kg`;
 
     document.querySelector(
-        ".pokemon-detail-wrap .height"
+        ".pokemon-detail-wrap:nth-child(2) .height"
     ).textContent = `${height / 10} m`;
 
     const abilitiesWrapper = document.querySelector(
@@ -267,7 +267,7 @@ function displayPokemonDetails(pokemon) {
         createAndAppendElement(statDiv, "progress", {
             className: "progress-bar",
             value: base_stat,
-            max: 100
+            max: 255
         });
     });
 
